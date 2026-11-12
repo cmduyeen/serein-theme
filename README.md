@@ -4,6 +4,20 @@
 
 Warm, low-distraction themes for everyday tools. Choose Alabaster (light) or Obsidian (dark).
 
+## See Serein
+
+The same warm palette, adapted to the interface of each app. Select an image to view it full size.
+
+| Alabaster — light | Obsidian — dark |
+|---|---|
+| [<img src="serein-terminal/screenshots/light.png" width="420" alt="Serein Alabaster in Windows Terminal">](serein-terminal/screenshots/light.png) | [<img src="serein-terminal/screenshots/dark.png" width="420" alt="Serein Obsidian in Windows Terminal">](serein-terminal/screenshots/dark.png) |
+
+## A warm, balanced palette
+
+Soft ivory and muted berry meet warm charcoal and dusty rose, with gentle semantic colors for errors, warnings and success.
+
+![Serein Alabaster and Obsidian palette swatches](serein-palette.svg)
+
 ## Benefits
 
 - **Readable:** checked contrast for declared text/background pairs.

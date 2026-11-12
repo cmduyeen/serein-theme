@@ -9,3 +9,5 @@
 *.sublime-package binary
 *.sublime-theme text eol=lf
 *.sublime-color-scheme text eol=lf
+*.tdesktop-theme binary
+*.tdesktop-palette text eol=lf

@@ -15,8 +15,21 @@
 | `serein-codex/` | 2 chuỗi import native `codex-theme-v1` và script copy | Chạy script copy rồi dùng Import ở đúng ô Light/Dark theme trong Settings → Appearance. |
 | `serein-windows/` | 2 theme Windows native, nền đơn sắc, script cài/khôi phục và ZIP | Chạy `./install.ps1 -Mode Light -Apply` từ thư mục đã giải nén, hoặc cài trước rồi chọn theme trong Windows. |
 | `serein-sublime-text/` | 2 color scheme, 2 UI theme, gói `.sublime-package`, script cài và ZIP | Cài package rồi chọn cả Color Scheme và Theme Serein trong Preferences của Sublime Text 4. |
+| `serein-telegram/` | 2 theme Telegram Desktop `.tdesktop-theme`, palette nguồn và ZIP | Trong Telegram Desktop, dùng Settings → Chat Settings → chọn theme từ file, xem trước rồi xác nhận. |
 
 Mỗi thư mục có gói chia sẻ riêng. Gói `serein-vscode-0.1.0.vsix` được cài thử thành công trong thư mục extension độc lập. Obsidian là bản 0.1.2; các adapter khác là 0.1.0. Các file theme có thể sửa trực tiếp để nâng cấp; không cần giữ các bản nháp hoặc cache của lần phát triển này.
+
+## Dùng Telegram Desktop
+
+Serein Telegram 0.1.0 dành cho **Telegram Desktop** (bản Windows/Linux/macOS dùng tdesktop), không phải Telegram Web, Telegram Android/iOS hoặc ứng dụng Telegram for macOS native riêng. Hai file `Serein-Alabaster.tdesktop-theme` và `Serein-Obsidian.tdesktop-theme` là gói native, mỗi gói có `colors.tdesktop-theme` và `background.png` ở root.
+
+Mở Telegram Desktop → Settings → Chat Settings → phần Chat Background/theme → **Choose from file** (tên/vị trí có thể khác theo phiên bản), chọn file `.tdesktop-theme`, kiểm tra cửa sổ preview, rồi **Apply This Theme / Keep Changes** nếu thấy phù hợp. Không cần script cài, admin, sửa `tdata` hoặc gửi file cho người khác. Chọn lại theme có sẵn trong Chat Settings để quay về. Nếu thiết lập Night Mode tự đổi theme, kiểm tra lại chế độ đó khi dùng hai bản Serein.
+
+Theme dùng nền chat đơn sắc, bong bóng nhận/gửi phân lớp nhẹ, hồng đất cho liên kết/nút/badge và màu riêng cho lỗi. Danh sách chat đang chọn vẫn dùng chữ tối/sáng dễ đọc thay vì nền nhấn phủ kín. Không thay ảnh đại diện, ảnh/video, sticker, nội dung tin nhắn, cỡ font hoặc thông báo; các mục đó không phải chức năng của gói theme này. Cỡ chữ có thể chỉnh trong Settings nếu phiên bản hỗ trợ.
+
+Các file `.tdesktop-palette` và `background-*.png` là nguồn để nâng cấp. Khi đóng gói lại, đổi tên palette thành `colors.tdesktop-theme`, ảnh thành `background.png`, ZIP cả hai file ở root rồi đổi phần mở rộng ZIP thành `.tdesktop-theme`. Không đặt thư mục bọc bên trong. Dùng các khóa màu của Telegram Desktop; khi phiên bản bổ sung UI mới, phần chưa khai báo sẽ dùng fallback của app và cần kiểm tra riêng.
+
+Đã kiểm tra cú pháp palette, giá trị màu, các cặp chữ/nền chính/selection và cấu trúc ZIP native. Chưa nhập hoặc kích hoạt trong Telegram hiện tại; chưa xác nhận tất cả trạng thái UI, nội dung đa phương tiện hay theme theo từng cuộc chat. Gói không truy cập dữ liệu tài khoản hoặc thư mục `tdata`.
 
 ## Dùng Sublime Text
 
@@ -141,6 +154,7 @@ Git repo vẫn giữ lịch sử trước dọn. Để đưa lên GitHub, tạo 
 - [Windows Terminal schemes](https://learn.microsoft.com/windows/terminal/customize-settings/color-schemes), [profile appearance](https://learn.microsoft.com/windows/terminal/customize-settings/profile-appearance).
 - [Microsoft: Windows theme file format](https://learn.microsoft.com/windows/win32/controls/themesfileformat-overview), [Windows color personalization](https://support.microsoft.com/en-US/Windows/Experience/Personalization/personalize-your-colors-in-windows). Các trường AppMode/SystemMode còn được đối chiếu với theme Aero/ThemeA đi kèm Windows trên máy này.
 - [Sublime Text: Color Schemes](https://www.sublimetext.com/docs/color_schemes.html), [Themes và theme inheritance](https://www.sublimetext.com/docs/themes.html). Các biến UI được đối chiếu với gói Theme - Default của Sublime Text cài trên máy.
+- [Telegram Desktop Theme Reference](https://github.com/telegramdesktop/tdesktop/wiki/Theme-Reference), [palette upstream của Desktop App Toolkit](https://github.com/desktop-app/lib_ui/blob/master/ui/colors.palette), [parser theme của Telegram Desktop](https://github.com/telegramdesktop/tdesktop/blob/dev/Telegram/SourceFiles/window/themes/window_theme.cpp). Wiki cũ chỉ dùng để tham khảo cách nhập/đóng gói; cú pháp còn được đối chiếu với parser hiện tại.
 - [Antigravity App Settings](https://antigravity.google/docs/settings): phần App, không nhầm CLI colorScheme với theme App.
 - [OpenAI Settings / Appearance](https://learn.chatgpt.com/docs/reference/settings): giao diện, màu, font và Import/Copy theme. Schema portable bổ sung được kiểm tra từ mã ứng dụng cài trên máy, không coi là API ổn định được tài liệu hóa.
 

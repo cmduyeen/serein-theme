@@ -14,8 +14,25 @@
 | `serein-antigravity/` | Preset cho Antigravity App và script copy màu | Nhập Background, Foreground, Accent trong Settings → Appearance cho từng chế độ. Đây là preset do Serein mô tả, không phải định dạng import của Antigravity. |
 | `serein-codex/` | 2 chuỗi import native `codex-theme-v1` và script copy | Chạy script copy rồi dùng Import ở đúng ô Light/Dark theme trong Settings → Appearance. |
 | `serein-windows/` | 2 theme Windows native, nền đơn sắc, script cài/khôi phục và ZIP | Chạy `./install.ps1 -Mode Light -Apply` từ thư mục đã giải nén, hoặc cài trước rồi chọn theme trong Windows. |
+| `serein-sublime-text/` | 2 color scheme, 2 UI theme, gói `.sublime-package`, script cài và ZIP | Cài package rồi chọn cả Color Scheme và Theme Serein trong Preferences của Sublime Text 4. |
 
 Mỗi thư mục có gói chia sẻ riêng. Gói `serein-vscode-0.1.0.vsix` được cài thử thành công trong thư mục extension độc lập. Obsidian là bản 0.1.2; các adapter khác là 0.1.0. Các file theme có thể sửa trực tiếp để nâng cấp; không cần giữ các bản nháp hoặc cache của lần phát triển này.
+
+## Dùng Sublime Text
+
+Serein Sublime Text 0.1.0 gồm **Serein Alabaster** và **Serein Obsidian**, mỗi bản có `.sublime-color-scheme` cho editor/syntax và `.sublime-theme` cho sidebar, tab, thanh trạng thái, popup và nút. UI theme kế thừa Default/Default Dark có sẵn trong Sublime Text 4, không yêu cầu plugin chạy nền hoặc tải font. Các menu/cửa sổ native do hệ điều hành vẽ có thể không theo đủ bảng màu.
+
+Windows: mở PowerShell tại `serein-sublime-text` hoặc thư mục giải nén, chạy `./install.ps1`. Script chỉ chép `Serein.sublime-package` vào `%USERPROFILE%/AppData/Roaming/Sublime Text/Installed Packages/`, không tự thay User Preferences. Bản Serein cũ được sao lưu ngoài repo nếu cài đè. Với bản portable hoặc Data directory khác, truyền `-DataPath 'đường-dẫn-Data'` lấy từ vị trí Packages của ứng dụng.
+
+Trên macOS/Linux hoặc khi cài thủ công: Preferences → Browse Packages để tìm `Packages`, đi lên thư mục cha và chép `Serein.sublime-package` vào thư mục cạnh nó tên `Installed Packages`. Sau đó:
+
+1. Preferences → Select Color Scheme → chọn **Serein Alabaster** hoặc **Serein Obsidian**.
+2. Preferences → Select Theme → chọn **Serein Alabaster** hoặc **Serein Obsidian** cùng chế độ. Có thể mở lại ứng dụng nếu package chưa xuất hiện.
+3. Hợp nhất các khóa mong muốn từ `recommended-settings.json` vào Preferences → Settings: Cascadia Mono 16, giãn dòng trên/dưới 3px, hạn chế chuyển động. File gợi ý không bị áp tự động; phím menu có thể khác theo OS/phiên bản.
+
+Sidebar thụt 16px mỗi cấp, giữ mũi tên, trạng thái chọn và màu Git/lỗi cần thiết. Syntax ít màu, comment rõ và không ép italic; có giữ kiểu chữ đậm/nghiêng khi nội dung Markdown yêu cầu. Các file JSON nguồn có thể sửa trực tiếp để nâng cấp; tạo lại `.sublime-package` bằng ZIP với file ở root, không bọc thêm thư mục Serein. Để quay lại, chọn theme/color scheme cũ trong Preferences. Không xóa User Preferences.
+
+Đã kiểm tra cấu trúc JSON, liên kết `extends` với theme mặc định cài trên máy, tương phản palette, script và nội dung gói. Chưa kích hoạt hoặc kiểm thử trực quan trong Sublime Text; syntax/plugin, các lớp phủ và trạng thái khác cần thử bằng tác vụ thật. Không bảo đảm hỗ trợ Sublime Text 3 hoặc các bản theme mặc định có schema khác.
 
 ## Dùng Windows
 
@@ -123,6 +140,7 @@ Git repo vẫn giữ lịch sử trước dọn. Để đưa lên GitHub, tạo 
 - [Obsidian Theme guidelines](https://docs.obsidian.md/Themes/App%20themes/Theme%20guidelines), [Manifest](https://docs.obsidian.md/Reference/Manifest), [Colors](https://docs.obsidian.md/Reference/CSS%20variables/Foundations/Colors).
 - [Windows Terminal schemes](https://learn.microsoft.com/windows/terminal/customize-settings/color-schemes), [profile appearance](https://learn.microsoft.com/windows/terminal/customize-settings/profile-appearance).
 - [Microsoft: Windows theme file format](https://learn.microsoft.com/windows/win32/controls/themesfileformat-overview), [Windows color personalization](https://support.microsoft.com/en-US/Windows/Experience/Personalization/personalize-your-colors-in-windows). Các trường AppMode/SystemMode còn được đối chiếu với theme Aero/ThemeA đi kèm Windows trên máy này.
+- [Sublime Text: Color Schemes](https://www.sublimetext.com/docs/color_schemes.html), [Themes và theme inheritance](https://www.sublimetext.com/docs/themes.html). Các biến UI được đối chiếu với gói Theme - Default của Sublime Text cài trên máy.
 - [Antigravity App Settings](https://antigravity.google/docs/settings): phần App, không nhầm CLI colorScheme với theme App.
 - [OpenAI Settings / Appearance](https://learn.chatgpt.com/docs/reference/settings): giao diện, màu, font và Import/Copy theme. Schema portable bổ sung được kiểm tra từ mã ứng dụng cài trên máy, không coi là API ổn định được tài liệu hóa.
 

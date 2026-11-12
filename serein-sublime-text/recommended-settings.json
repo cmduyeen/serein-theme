@@ -1,0 +1,12 @@
+{
+  "font_face": "Cascadia Mono",
+  "font_size": 16,
+  "line_padding_top": 3,
+  "line_padding_bottom": 3,
+  "caret_style": "solid",
+  "animation_enabled": false,
+  "highlight_line": false,
+  "draw_white_space": "selection",
+  "fade_fold_buttons": false,
+  "bold_folder_labels": true
+}

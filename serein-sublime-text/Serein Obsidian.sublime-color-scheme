@@ -1,0 +1,120 @@
+{
+  "name": "Serein Obsidian",
+  "variables": {
+    "canvas": "#191817",
+    "surface": "#21201E",
+    "elevated": "#2B2926",
+    "text": "#C7C3BA",
+    "muted": "#A39E95",
+    "accent": "#C9848F",
+    "selection": "#302D29",
+    "border": "#827D75",
+    "error": "#CF8179",
+    "warning": "#BAA16B",
+    "success": "#9FAE94",
+    "info": "#98A9BD"
+  },
+  "globals": {
+    "background": "var(canvas)",
+    "foreground": "var(text)",
+    "caret": "var(accent)",
+    "line_highlight": "var(elevated)",
+    "selection": "var(selection)",
+    "selection_foreground": "var(text)",
+    "selection_border": "var(accent)",
+    "inactive_selection": "var(selection)",
+    "inactive_selection_foreground": "var(text)",
+    "gutter": "var(canvas)",
+    "gutter_foreground": "var(muted)",
+    "find_highlight": "var(selection)",
+    "find_highlight_foreground": "var(text)",
+    "guide": "var(border)",
+    "active_guide": "var(accent)",
+    "stack_guide": "var(border)",
+    "misspelling": "var(error)",
+    "accent": "var(accent)",
+    "brackets_foreground": "var(accent)",
+    "brackets_options": "underline",
+    "tags_foreground": "var(accent)",
+    "tags_options": "underline",
+    "shadow": "#00000000",
+    "redish": "var(error)",
+    "orangish": "var(warning)",
+    "yellowish": "var(warning)",
+    "greenish": "var(success)",
+    "bluish": "var(info)",
+    "purplish": "var(accent)",
+    "pinkish": "var(accent)",
+    "cyanish": "var(info)"
+  },
+  "rules": [
+    {
+      "name": "Comments: readable, upright",
+      "scope": "comment, punctuation.definition.comment",
+      "foreground": "#A39E95",
+      "font_style": ""
+    },
+    {
+      "name": "Structural keywords",
+      "scope": "keyword, storage.type, storage.modifier",
+      "foreground": "#C9848F",
+      "font_style": ""
+    },
+    {
+      "name": "Operators and punctuation",
+      "scope": "keyword.operator, punctuation",
+      "foreground": "#C7C3BA",
+      "font_style": ""
+    },
+    {
+      "name": "Strings",
+      "scope": "string",
+      "foreground": "#9FAE94"
+    },
+    {
+      "name": "Literal values",
+      "scope": "constant.numeric, constant.language",
+      "foreground": "#98A9BD"
+    },
+    {
+      "name": "Names",
+      "scope": "variable, entity.name, support, entity.other.attribute-name",
+      "foreground": "#C7C3BA",
+      "font_style": ""
+    },
+    {
+      "name": "Markup headings",
+      "scope": "markup.heading",
+      "foreground": "#C7C3BA",
+      "font_style": "bold"
+    },
+    {
+      "name": "Markup link",
+      "scope": "markup.underline.link",
+      "foreground": "#C9848F",
+      "font_style": "underline"
+    },
+    {
+      "name": "Inserted / deleted",
+      "scope": "markup.inserted",
+      "foreground": "#9FAE94"
+    },
+    {
+      "name": "Serein syntax",
+      "scope": "markup.deleted, invalid",
+      "foreground": "#CF8179"
+    },
+    {
+      "name": "Serein syntax",
+      "scope": "markup.bold",
+      "foreground": "#C7C3BA",
+      "font_style": "bold"
+    },
+    {
+      "name": "Serein syntax",
+      "scope": "markup.italic",
+      "foreground": "#C7C3BA",
+      "font_style": "italic"
+    }
+  ]
+}

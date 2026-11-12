@@ -1,4 +1,4 @@
-param([ValidateSet('Light', 'Dark')][string]$Mode = 'Light', [switch]$Preview)
+param([ValidateSet('Light', 'Dark')][string]$Mode = 'Light')
 $ErrorActionPreference = 'Stop'
 $palette = Get-Content -LiteralPath (Join-Path $PSScriptRoot "schemes\$($Mode.ToLower()).json") -Raw | ConvertFrom-Json
 $esc = [char]27
@@ -33,9 +33,3 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
     $PSStyle.Formatting.FormatAccent = Get-SereinColor $palette.purple
 }
 Write-Host "Serein Terminal - $Mode"
-if ($Preview) { & (Join-Path $PSScriptRoot 'preview.ps1') }
-# A local receipt proves this session started inside Windows Terminal; no telemetry is sent.
-if ($env:WT_SESSION) {
-    @{ mode=$Mode; terminalSession=$env:WT_SESSION; pid=$PID; started=(Get-Date).ToString('o') } |
-        ConvertTo-Json | Set-Content -LiteralPath (Join-Path $PSScriptRoot 'last-session.json') -Encoding utf8
-}

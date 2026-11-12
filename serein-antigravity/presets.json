@@ -1,0 +1,21 @@
+{
+  "format": "serein-antigravity-preset-v1",
+  "version": "0.1.0",
+  "installation": "Apply the values through Settings > Appearance. Not a native import file or VSIX.",
+  "Light": {
+    "name": "Serein Alabaster",
+    "background": "#F6F4F0",
+    "foreground": "#3D3A36",
+    "accent": "#914854",
+    "contrast": "Default",
+    "font": "Google Sans"
+  },
+  "Dark": {
+    "name": "Serein Obsidian",
+    "background": "#191817",
+    "foreground": "#C7C3BA",
+    "accent": "#C9848F",
+    "contrast": "Default",
+    "font": "Google Sans"
+  }
+}

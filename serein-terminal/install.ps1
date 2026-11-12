@@ -16,6 +16,7 @@ if (-not $SettingsPath) {
     if (@($candidates).Count -ne 1) { throw 'Specify -SettingsPath: expected exactly one Windows Terminal configuration.' }
     $SettingsPath = @($candidates)[0]
 }
+$stateRoot = Join-Path $env:USERPROFILE 'AppData\Local\Serein\Terminal'
 $original = [IO.File]::ReadAllText($SettingsPath)
 $settings = $original | ConvertFrom-Json -AsHashtable
 if (-not $settings.profiles -or -not $settings.profiles.Contains('list')) { throw 'Unsupported profiles structure.' }
@@ -42,17 +43,17 @@ if ($SetDefault) { $settings.defaultProfile = $guids[$Mode] }
 $newJson = $settings | ConvertTo-Json -Depth 100
 $null = $newJson | ConvertFrom-Json
 if ($PSCmdlet.ShouldProcess($SettingsPath, 'Back up and install Serein Terminal profiles and schemes')) {
-    New-Item -ItemType Directory -Path (Join-Path $PSScriptRoot 'backups') -Force | Out-Null
-    $backup = Join-Path $PSScriptRoot ("backups\settings-{0}-{1}.json" -f (Get-Date -Format 'yyyyMMdd-HHmmss'), [guid]::NewGuid().ToString('N').Substring(0,8))
+    New-Item -ItemType Directory -Path (Join-Path $stateRoot 'backups') -Force | Out-Null
+    $backup = Join-Path $stateRoot ("backups\settings-{0}-{1}.json" -f (Get-Date -Format 'yyyyMMdd-HHmmss'), [guid]::NewGuid().ToString('N').Substring(0,8))
     [IO.File]::WriteAllText($backup, $original, [Text.UTF8Encoding]::new($false))
     # Avoid replacing a configuration edited since it was read.
     if ([IO.File]::ReadAllText($SettingsPath) -cne $original) { throw 'Settings changed during install; retry.' }
     [IO.File]::WriteAllText($SettingsPath, $newJson, [Text.UTF8Encoding]::new($false))
     @{ settingsPath=$SettingsPath; backupPath=$backup; installedHash=(Get-FileHash -LiteralPath $SettingsPath).Hash } |
-        ConvertTo-Json | Set-Content -LiteralPath (Join-Path $PSScriptRoot 'install-state.json') -Encoding utf8
+        ConvertTo-Json | Set-Content -LiteralPath (Join-Path $stateRoot 'install-state.json') -Encoding utf8
     Write-Host "Installed both profiles. Backup: $backup"
     if ($Launch) {
-        & wt.exe -w new new-tab -p "Serein Terminal $Mode" pwsh.exe -NoLogo -NoExit -File $sessionPath -Mode $Mode -Preview
+        & wt.exe -w new new-tab -p "Serein Terminal $Mode" pwsh.exe -NoLogo -NoExit -File $sessionPath -Mode $Mode
         if ($LASTEXITCODE -ne 0) { throw "Terminal launch failed: $LASTEXITCODE" }
     }
 }

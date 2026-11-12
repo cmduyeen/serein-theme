@@ -1,7 +1,7 @@
 [CmdletBinding(SupportsShouldProcess)]
 param()
 $ErrorActionPreference = 'Stop'
-$state = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'install-state.json') -Raw | ConvertFrom-Json
+$state = Get-Content -LiteralPath (Join-Path $env:USERPROFILE 'AppData\Local\Serein\Terminal\install-state.json') -Raw | ConvertFrom-Json
 if ((Get-FileHash -LiteralPath $state.settingsPath).Hash -ne $state.installedHash) {
     throw 'Settings changed since installation. Restore manually from the backup to avoid losing later edits.'
 }

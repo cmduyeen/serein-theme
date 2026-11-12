@@ -13,8 +13,29 @@
 | `serein-vscode/` | 2 theme JSON, package manifest, settings gợi ý và VSIX | Extensions → `…` → Install from VSIX…, chọn file VSIX, rồi Ctrl+K Ctrl+T chọn Serein. |
 | `serein-antigravity/` | Preset cho Antigravity App và script copy màu | Nhập Background, Foreground, Accent trong Settings → Appearance cho từng chế độ. Đây là preset do Serein mô tả, không phải định dạng import của Antigravity. |
 | `serein-codex/` | 2 chuỗi import native `codex-theme-v1` và script copy | Chạy script copy rồi dùng Import ở đúng ô Light/Dark theme trong Settings → Appearance. |
+| `serein-windows/` | 2 theme Windows native, nền đơn sắc, script cài/khôi phục và ZIP | Chạy `./install.ps1 -Mode Light -Apply` từ thư mục đã giải nén, hoặc cài trước rồi chọn theme trong Windows. |
 
 Mỗi thư mục có gói chia sẻ riêng. Gói `serein-vscode-0.1.0.vsix` được cài thử thành công trong thư mục extension độc lập. Obsidian là bản 0.1.2; các adapter khác là 0.1.0. Các file theme có thể sửa trực tiếp để nâng cấp; không cần giữ các bản nháp hoặc cache của lần phát triển này.
+
+## Dùng Windows
+
+Serein Windows 0.1.0 dùng `.theme` và visual style Aero có sẵn, dành cho Windows 10/11. Bản Alabaster có wallpaper đơn sắc `#F6F4F0`, accent `#914854`, app/system Light; bản Obsidian có wallpaper `#191817`, accent `#C9848F`, app/system Dark. Ảnh nền PNG 3840×2160 được tạo bằng màu thuần, không có chữ hoặc trang trí.
+
+Từ thư mục `serein-windows` hoặc thư mục giải nén:
+
+```powershell
+./install.ps1 -Mode Light          # Chỉ cài file, chưa đổi theme hiện tại
+./install.ps1 -Mode Dark -Apply    # Sao lưu theme hiện tại, rồi mở theme tối
+./restore.ps1                     # Mở theme đã sao lưu, nếu vẫn đang dùng theme vừa áp
+```
+
+Script dùng PowerShell 5.1+ trên Windows; không cần admin. Hai theme được cài tại `%USERPROFILE%/AppData/Local/Microsoft/Windows/Themes/Serein/`. Các đường wallpaper được đổi thành đường tuyệt đối khi cài, nên dùng script trước khi mở `.theme`. Bản sao và receipt nằm ngoài repo tại `%USERPROFILE%/AppData/Local/Serein/Windows/`. `-Apply` dừng nếu không tìm được theme hiện tại để sao lưu; có thể lưu theme hiện tại trong Settings rồi thử lại. Các ảnh tham chiếu trong theme cũ cần còn tồn tại khi khôi phục; bản sao theme không phải bản sao toàn bộ wallpaper slideshow, âm thanh hoặc mọi thiết lập Windows.
+
+Windows tự xử lý việc kích hoạt qua file `.theme`; Settings có thể mở khi áp dụng. Kiểm tra kết quả tại Settings → Personalization → Themes. Khi ứng dụng chưa đổi giao diện, mở lại ứng dụng. Nếu không muốn thay wallpaper, chọn lại ảnh nền riêng sau khi áp theme.
+
+Phạm vi native: chế độ sáng/tối, màu nhấn và desktop. Windows vẫn quyết định màu nền/chữ bên trong Settings, File Explorer, menu và taskbar; không bảo đảm tất cả dùng đúng HEX Serein. Theme không ép ứng dụng bỏ theme riêng, không đổi font hệ thống, không thay icon/cursor và không cài visual-style patcher. Mở Personalization → Colors để tắt Transparency effects nếu muốn nền đục; Accessibility → Visual effects để giảm Animation effects theo sở thích. Hai tùy chọn này **không bị script tự thay đổi**. Các theme có thể ảnh hưởng sound scheme mặc định theo hành vi Windows; kiểm tra Sounds nếu có cấu hình âm thanh riêng.
+
+Trạng thái: đã kiểm tra cấu trúc theme, màu/nền, script và đường dẫn khi cài vào thư mục thử. Chưa áp dụng vào Windows đang dùng; chưa xác nhận render trên mọi bản Windows. Đây là tùy biến giao diện, không phải sản phẩm y tế hoặc chế độ High Contrast.
 
 ## Dùng Terminal và khôi phục
 
@@ -101,6 +122,7 @@ Git repo vẫn giữ lịch sử trước dọn. Để đưa lên GitHub, tạo 
 - [VS Code Color Theme](https://code.visualstudio.com/api/extension-guides/color-theme), [Theme Color reference](https://code.visualstudio.com/api/references/theme-color), [Publishing extensions](https://code.visualstudio.com/api/working-with-extensions/publishing-extension).
 - [Obsidian Theme guidelines](https://docs.obsidian.md/Themes/App%20themes/Theme%20guidelines), [Manifest](https://docs.obsidian.md/Reference/Manifest), [Colors](https://docs.obsidian.md/Reference/CSS%20variables/Foundations/Colors).
 - [Windows Terminal schemes](https://learn.microsoft.com/windows/terminal/customize-settings/color-schemes), [profile appearance](https://learn.microsoft.com/windows/terminal/customize-settings/profile-appearance).
+- [Microsoft: Windows theme file format](https://learn.microsoft.com/windows/win32/controls/themesfileformat-overview), [Windows color personalization](https://support.microsoft.com/en-US/Windows/Experience/Personalization/personalize-your-colors-in-windows). Các trường AppMode/SystemMode còn được đối chiếu với theme Aero/ThemeA đi kèm Windows trên máy này.
 - [Antigravity App Settings](https://antigravity.google/docs/settings): phần App, không nhầm CLI colorScheme với theme App.
 - [OpenAI Settings / Appearance](https://learn.chatgpt.com/docs/reference/settings): giao diện, màu, font và Import/Copy theme. Schema portable bổ sung được kiểm tra từ mã ứng dụng cài trên máy, không coi là API ổn định được tài liệu hóa.
 

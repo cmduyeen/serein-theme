@@ -1,0 +1,22 @@
+; Serein Obsidian - Windows 10/11 native theme
+; Install with install.ps1 so the wallpaper path is resolved reliably.
+[Theme]
+DisplayName=Serein Obsidian
+
+[Control Panel\Desktop]
+Wallpaper=wallpapers\obsidian.png
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[VisualStyles]
+Path=%ResourceDir%\Themes\Aero\Aero.msstyles
+ColorStyle=NormalColor
+Size=NormalSize
+AutoColorization=0
+ColorizationColor=0xFFC9848F
+SystemMode=Dark
+AppMode=Dark
+
+[MasterThemeSelector]
+MTSM=RJSPBS

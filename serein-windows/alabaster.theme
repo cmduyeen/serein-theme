@@ -1,0 +1,22 @@
+; Serein Alabaster - Windows 10/11 native theme
+; Install with install.ps1 so the wallpaper path is resolved reliably.
+[Theme]
+DisplayName=Serein Alabaster
+
+[Control Panel\Desktop]
+Wallpaper=wallpapers\alabaster.png
+TileWallpaper=0
+WallpaperStyle=10
+Pattern=
+
+[VisualStyles]
+Path=%ResourceDir%\Themes\Aero\Aero.msstyles
+ColorStyle=NormalColor
+Size=NormalSize
+AutoColorization=0
+ColorizationColor=0xFF914854
+SystemMode=Light
+AppMode=Light
+
+[MasterThemeSelector]
+MTSM=RJSPBS

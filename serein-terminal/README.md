@@ -8,7 +8,11 @@ Warm surfaces, readable text and restrained accents. Alabaster is light; Obsidia
 
 ## Screenshots
 
-Real application screenshots are pending. No generated previews are used.
+Actual Windows Terminal captures with the Serein profiles applied and identical sample content. Click an image for downloads.
+
+| Alabaster · Light | Obsidian · Dark |
+|---|---|
+| [![Serein Alabaster in Windows Terminal](screenshots/light.png)](https://github.com/cmduyeen/serein-terminal/releases/latest) | [![Serein Obsidian in Windows Terminal](screenshots/dark.png)](https://github.com/cmduyeen/serein-terminal/releases/latest) |
 
 ## Install
 

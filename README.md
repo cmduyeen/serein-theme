@@ -10,7 +10,7 @@ The same warm palette, adapted to the interface of each app. Select an image to 
 
 | Alabaster — light | Obsidian — dark |
 |---|---|
-| [<img src="serein-terminal/screenshots/light.png" width="420" alt="Serein Alabaster in Windows Terminal">](serein-terminal/screenshots/light.png) | [<img src="serein-terminal/screenshots/dark.png" width="420" alt="Serein Obsidian in Windows Terminal">](serein-terminal/screenshots/dark.png) |
+| [<img src="https://raw.githubusercontent.com/cmduyeen/serein-terminal/main/screenshots/light.png" width="420" alt="Serein Alabaster in Windows Terminal">](https://raw.githubusercontent.com/cmduyeen/serein-terminal/main/screenshots/light.png) | [<img src="https://raw.githubusercontent.com/cmduyeen/serein-terminal/main/screenshots/dark.png" width="420" alt="Serein Obsidian in Windows Terminal">](https://raw.githubusercontent.com/cmduyeen/serein-terminal/main/screenshots/dark.png) |
 
 ## A warm, balanced palette
 
@@ -50,6 +50,6 @@ Serein has not been clinically tested and does not claim to treat eye strain or 
 
 ## About this hub
 
-Each linked repository has independent source files, installation instructions and downloads. Actual light/dark screenshots are included where capture is complete. No submodules or full-suite installation required.
+This repository is the Serein index and shared design reference, not a second copy of each theme. The linked product repositories are the source of truth for their code, installation instructions, screenshots and downloads; check each one for the latest release.
 
 [MIT License](LICENSE).

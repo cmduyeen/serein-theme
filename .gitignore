@@ -1,0 +1,11 @@
+dist/
+.build/
+**/__pycache__/
+**/.preview/
+**/backups/
+**/install-state.json
+**/last-session.json
+*.vsix
+*.zip
+.DS_Store
+Thumbs.db

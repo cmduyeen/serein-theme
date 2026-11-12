@@ -1,0 +1,23 @@
+{
+  "name": "Serein Obsidian",
+  "background": "#191817",
+  "foreground": "#C7C3BA",
+  "cursorColor": "#C9848F",
+  "selectionBackground": "#35312E",
+  "black": "#969087",
+  "red": "#CF8179",
+  "green": "#9FAE94",
+  "yellow": "#BAA16B",
+  "blue": "#98A9BD",
+  "purple": "#C9848F",
+  "cyan": "#8FAFAA",
+  "white": "#C7C3BA",
+  "brightBlack": "#A39E95",
+  "brightRed": "#DEA099",
+  "brightGreen": "#B1BFA6",
+  "brightYellow": "#CDB582",
+  "brightBlue": "#AFBED0",
+  "brightPurple": "#D99CA5",
+  "brightCyan": "#A5C3BE",
+  "brightWhite": "#D6D1C7"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "serein-vscode",
+  "displayName": "Serein",
+  "description": "Serein color theme: extreme minimalism, warm surfaces and readable low-color syntax.",
+  "version": "0.1.0",
+  "publisher": "serein-local",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Themes"],
+  "keywords": ["theme", "minimal", "warm", "light", "dark"],
+  "scripts": { "build": "python build.py", "test": "python build.py --check" },
+  "contributes": {
+    "themes": [
+      { "label": "Serein Alabaster", "uiTheme": "vs", "path": "./themes/serein-alabaster-color-theme.json" },
+      { "label": "Serein Obsidian", "uiTheme": "vs-dark", "path": "./themes/serein-obsidian-color-theme.json" }
+    ]
+  }
+}

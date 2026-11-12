@@ -1,0 +1,15 @@
+/* Optional note-level focus. Enable snippet, then add cssclasses: [serein-focus]
+   to the note's Properties/frontmatter. Does not hide navigation or controls. */
+.serein-focus {
+  --file-line-width: 65ch;
+  --line-height-normal: 1.7;
+}
+
+.serein-focus .inline-title {
+  font-size: 1.4em;
+  font-weight: 600;
+}
+
+.serein-focus .metadata-container {
+  margin-bottom: 1.5em;
+}

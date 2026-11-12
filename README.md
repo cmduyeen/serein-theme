@@ -16,8 +16,26 @@
 | `serein-windows/` | 2 theme Windows native, nền đơn sắc, script cài/khôi phục và ZIP | Chạy `./install.ps1 -Mode Light -Apply` từ thư mục đã giải nén, hoặc cài trước rồi chọn theme trong Windows. |
 | `serein-sublime-text/` | 2 color scheme, 2 UI theme, gói `.sublime-package`, script cài và ZIP | Cài package rồi chọn cả Color Scheme và Theme Serein trong Preferences của Sublime Text 4. |
 | `serein-telegram/` | 2 theme Telegram Desktop `.tdesktop-theme`, palette nguồn và ZIP | Trong Telegram Desktop, dùng Settings → Chat Settings → chọn theme từ file, xem trước rồi xác nhận. |
+| `serein-vimium/` | CSS sáng/tối/tự động, script copy và ZIP | Dán CSS vào Vimium Options → Advanced Options → CSS for Vimium UI, rồi lưu. |
 
 Mỗi thư mục có gói chia sẻ riêng. Gói `serein-vscode-0.1.0.vsix` được cài thử thành công trong thư mục extension độc lập. Obsidian là bản 0.1.2; các adapter khác là 0.1.0. Các file theme có thể sửa trực tiếp để nâng cấp; không cần giữ các bản nháp hoặc cache của lần phát triển này.
+
+## Dùng Vimium
+
+Serein Vimium 0.1.0 dành cho **Vimium gốc của philc**, tham chiếu selector hiện hành sau thay đổi UI ở Vimium 2.3. Không cam kết tương thích Vimium C, Surfingkeys hoặc Vim Vixen. Gồm `serein-alabaster.css` (luôn sáng), `serein-obsidian.css` (luôn tối) và `serein-auto.css` (theo `prefers-color-scheme` của trình duyệt/hệ điều hành, không tự phân tích màu trang web).
+
+```powershell
+./serein-vimium/copy-theme.ps1 -Mode Auto
+# Hoặc -Mode Light / -Mode Dark
+```
+
+Mở Options của extension Vimium → Advanced Options → **CSS for Vimium UI**, lưu bản CSS cũ hoặc dùng Download backup trước khi thay, dán toàn bộ nội dung một file CSS rồi **Save Changes**. Không dán vào Custom key mappings. Tải lại tab web nếu UI chưa cập nhật. Có thể mở file CSS và copy thủ công trên macOS/Linux; không cần script PowerShell hay plugin thêm. Để quay về, khôi phục CSS đã lưu hoặc dùng Reset cạnh ô CSS; không reset toàn bộ phím tắt.
+
+Theme áp dụng cho link hints (`f`/`F`), Vomnibar (`o`, `b`, `T`) và HUD/find (`/`). Chữ hint rõ, bỏ gradient vàng mặc định, ký tự đã khớp dùng hồng đất kèm gạch chân thay vì làm mờ; dòng chọn trong Vomnibar giữ tương phản. CSS được giới hạn ở các thành phần Vimium, không tô lại toàn bộ trang web. Không thay vị trí, kích thước iframe hay z-index do Vimium quản lý, không đổi phím tắt, search engine, quyền truy cập hoặc dữ liệu trình duyệt. Help/options UI chưa được bao phủ đầy đủ.
+
+Không dùng backup JSON cấu hình để cài theme vì có thể vô tình thay key mappings/exclusions. Các trang đặc quyền như `chrome://`, cửa hàng extension hoặc tab không được cấp quyền có thể không chạy Vimium; theme không thay đổi giới hạn đó. Dark Reader hoặc CSS/theme của trang có thể ảnh hưởng kết quả và cần kiểm tra riêng.
+
+Đã kiểm tra CSS tĩnh, selector theo mã upstream và tương phản palette cho chữ/hints/vùng chọn. Chưa áp dụng vào extension hoặc kiểm thử trực tiếp trong trình duyệt. Cần thử trang sáng/tối, nhiều hints sát nhau, lọc hints, Vomnibar có URL dài, tìm kiếm không có kết quả, zoom và chuyển chế độ hệ thống. CSS có media query Auto dùng cùng palette với hai bản cố định.
 
 ## Dùng Telegram Desktop
 
@@ -155,6 +173,7 @@ Git repo vẫn giữ lịch sử trước dọn. Để đưa lên GitHub, tạo 
 - [Microsoft: Windows theme file format](https://learn.microsoft.com/windows/win32/controls/themesfileformat-overview), [Windows color personalization](https://support.microsoft.com/en-US/Windows/Experience/Personalization/personalize-your-colors-in-windows). Các trường AppMode/SystemMode còn được đối chiếu với theme Aero/ThemeA đi kèm Windows trên máy này.
 - [Sublime Text: Color Schemes](https://www.sublimetext.com/docs/color_schemes.html), [Themes và theme inheritance](https://www.sublimetext.com/docs/themes.html). Các biến UI được đối chiếu với gói Theme - Default của Sublime Text cài trên máy.
 - [Telegram Desktop Theme Reference](https://github.com/telegramdesktop/tdesktop/wiki/Theme-Reference), [palette upstream của Desktop App Toolkit](https://github.com/desktop-app/lib_ui/blob/master/ui/colors.palette), [parser theme của Telegram Desktop](https://github.com/telegramdesktop/tdesktop/blob/dev/Telegram/SourceFiles/window/themes/window_theme.cpp). Wiki cũ chỉ dùng để tham khảo cách nhập/đóng gói; cú pháp còn được đối chiếu với parser hiện tại.
+- [Vimium Options: phạm vi Custom CSS](https://github.com/philc/vimium/blob/master/pages/options.html), [hint selectors](https://github.com/philc/vimium/blob/master/content_scripts/vimium.css), [Vomnibar CSS](https://github.com/philc/vimium/blob/master/pages/vomnibar_page.css), [HUD CSS](https://github.com/philc/vimium/blob/master/pages/hud_page.css).
 - [Antigravity App Settings](https://antigravity.google/docs/settings): phần App, không nhầm CLI colorScheme với theme App.
 - [OpenAI Settings / Appearance](https://learn.chatgpt.com/docs/reference/settings): giao diện, màu, font và Import/Copy theme. Schema portable bổ sung được kiểm tra từ mã ứng dụng cài trên máy, không coi là API ổn định được tài liệu hóa.
 
